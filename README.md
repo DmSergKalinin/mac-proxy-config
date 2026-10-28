@@ -1,0 +1,1 @@
+# mac-proxy-config
