@@ -1,1 +1,34 @@
-function FindProxyForURL(url, host) { host = host.toLowerCase(); if (host === "chatgpt.com" || dnsDomainIs(host, ".chatgpt.com") || host === "openai.com" || dnsDomainIs(host, ".openai.com") || host === "oaistatic.com" || dnsDomainIs(host, ".oaistatic.com") || host === "oaiusercontent.com" || dnsDomainIs(host, ".oaiusercontent.com") || host === "oaistatsig.com" || dnsDomainIs(host, ".oaistatsig.com") || host === "challenges.cloudflare.com" || host === "chatgpt.com" || dnsDomainIs(host, ".chatgpt.com") || host === "openai.com" || dnsDomainIs(host, ".openai.com") || host === "oaistatic.com" || dnsDomainIs(host, ".oaistatic.com") || host === "oaiusercontent.com" || dnsDomainIs(host, ".oaiusercontent.com") || host === "oaistatsig.com" || dnsDomainIs(host, ".oaistatsig.com") || host === "challenges.cloudflare.com" || host === "youtube.com" || dnsDomainIs(host, ".youtube.com") || host === "youtu.be" || dnsDomainIs(host, ".youtu.be") || host === "googlevideo.com" || dnsDomainIs(host, ".googlevideo.com") || host === "ytimg.com" || dnsDomainIs(host, ".ytimg.com") || host === "youtubei.googleapis.com" || host === "youtube-nocookie.com" || dnsDomainIs(host, ".youtube-nocookie.com")) return "SOCKS5 150.241.231.229:12324"; return "DIRECT"; }
+
+function FindProxyForURL(url, host) {
+    host = host.toLowerCase();
+
+    const proxy = "SOCKS5 150.241.231.229:12324";
+
+    const domains = [
+        "youtube.com",
+        "youtu.be",
+        "googlevideo.com",
+        "ytimg.com",
+        "youtubei.googleapis.com",
+        "youtube-nocookie.com",
+        "chatgpt.com",
+        "openai.com",
+        "oaistatic.com",
+        "oaiusercontent.com",
+        "oaistatsig.com",
+        "challenges.cloudflare.com"
+    ];
+
+    for (var i = 0; i < domains.length; i++) {
+        var domain = domains[i];
+
+        if (
+            host === domain ||
+            dnsDomainIs(host, "." + domain)
+        ) {
+            return proxy;
+        }
+    }
+
+    return "DIRECT";
+}
