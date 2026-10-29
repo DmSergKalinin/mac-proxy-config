@@ -2,7 +2,7 @@
 function FindProxyForURL(url, host) {
     host = host.toLowerCase();
 
-    const proxy = "SOCKS5 150.241.231.229:12324";
+    const proxy = "SOCKS 150.241.231.229:12324";
 
     const domains = [
         "youtube.com",
