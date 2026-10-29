@@ -30,8 +30,7 @@ function FindProxyForURL(url, host) {
         }
     }
 
-
-  // Telegram: domains and IPv4 server networks
+// Telegram: domains and IPv4 server networks
   if (
     host === "telegram.org" ||
     dnsDomainIs(host, ".telegram.org") ||
@@ -66,7 +65,5 @@ function FindProxyForURL(url, host) {
       }
     }
   }
-
-
     return "DIRECT";
 }
